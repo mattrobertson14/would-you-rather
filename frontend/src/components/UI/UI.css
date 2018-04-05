@@ -6,6 +6,7 @@
   box-shadow: 0px 2px 4px 2px lightgrey;
   border: .5px solid lightgrey;
   border-radius: 2px;
+  background-color: #FDFDFD;
 }
 
 .Card .divider {

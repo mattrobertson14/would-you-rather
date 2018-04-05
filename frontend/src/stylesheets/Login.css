@@ -1,3 +1,7 @@
+.Login {
+  height: 100%;
+}
+
 .Login .Card {
   position: relative;
   margin: auto;
@@ -15,6 +19,7 @@
 }
 
 .Login .Card h2 {
+  text-align: center;
   position: relative;
   font-weight: normal;
   color: grey;
