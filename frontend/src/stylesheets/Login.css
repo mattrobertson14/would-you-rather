@@ -5,9 +5,10 @@
 .Login .Card {
   position: relative;
   margin: auto;
-  top: 200px;
+  top: 90px;
   max-height: 450px;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
   width: 300px !important;
 }
 
