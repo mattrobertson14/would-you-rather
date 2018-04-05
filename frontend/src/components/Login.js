@@ -1,17 +1,11 @@
 import React from 'react';
 import '../stylesheets/Login.css';
 import UserOption from './UserOption';
+import propTypes from 'prop-types';
 import { Card } from './UI';
 
-const users = [
-  { name : 'Michaella Robertson'},
-  { name : 'Matthew Robertson' },
-  { name : 'Tyler Robertson' },
-  { name : 'Someone Else' }
-]
-
-const Login = () => {
-  const height = (120 + users.length*84);
+const Login = ({ users }) => {
+  const height = users? (120 + users.length*84) : 120;
 
   return (
     <div className="Login">
@@ -21,15 +15,20 @@ const Login = () => {
           <span className="divider" />
         </div>
         <div className='users'>
-          {
+          { users?
             users.map(user => (
               <UserOption key={user.name} name={ user.name } />
             ))
+            : null
           }
         </div>
       </Card>
     </div>
   )
+}
+
+Login.propTypes = {
+  users : propTypes.array
 }
 
 export default Login;
