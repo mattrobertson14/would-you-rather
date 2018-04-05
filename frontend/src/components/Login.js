@@ -4,11 +4,11 @@ import UserOption from './UserOption';
 import propTypes from 'prop-types';
 import { Card } from './UI';
 import { connect } from 'react-redux';
-import { loadUsers as loadUsersAction } from '../actions/Users';
+import { loadUsers as loadUsersAction, loginUser as loginUserAction } from '../actions/Users';
 
-const Login = ({ users, getAllUsers }) => {
+const Login = ({ users, getAllUsers, loginUser }) => {
   const height = users? (120 + users.length*84) : 120;
-  getAllUsers();
+  if (users.length === 0) getAllUsers();
 
   return (
     <div className="Login">
@@ -20,7 +20,7 @@ const Login = ({ users, getAllUsers }) => {
         <div className='users'>
           { users?
             users.map(user => (
-              <UserOption key={user.name} name={ user.name } />
+              <UserOption key={user.name} name={ user.name } onClick={ () => loginUser(user) }/>
             ))
             : null
           }
@@ -32,15 +32,17 @@ const Login = ({ users, getAllUsers }) => {
 
 Login.propTypes = {
   users : propTypes.array,
-  getAllUsers : propTypes.func
+  getAllUsers : propTypes.func,
+  loginUser : propTypes.func
 }
 
 const mapDispatchToProps = dispatch => ({
-  getAllUsers: () => dispatch(loadUsersAction())
+  getAllUsers: () => dispatch(loadUsersAction()),
+  loginUser: ( user ) => dispatch(loginUserAction( user ))
 });
 
 const mapStateToProps = state => ({
-  users: Object.values(state.users)
+  users: state.users.all
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

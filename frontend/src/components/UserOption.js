@@ -3,10 +3,10 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { Avatar } from './UI';
 
-const UserOption = ({ name }) => {
+const UserOption = ({ name, onClick }) => {
 
   return (
-    <div className="UserOption">
+    <div className="UserOption" onClick={ onClick }>
       <Avatar size='small' />
       <p>{ name }</p>
     </div>
@@ -14,7 +14,8 @@ const UserOption = ({ name }) => {
 }
 
 UserOption.propTypes = {
-  name : propTypes.string
+  name : propTypes.string,
+  onClick : propTypes.func
 }
 
 export default UserOption;

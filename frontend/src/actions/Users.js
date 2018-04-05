@@ -15,3 +15,10 @@ export const updateUsers = ( users ) => {
     users : users
   }
 }
+
+export const loginUser = ( user ) => {
+  return {
+    type : Types.LOGIN_USER,
+    user : user
+  }
+}
