@@ -17,6 +17,11 @@ function userReducer(state = initialState, action){
         ...state,
         currentUser : action.user
       }
+    case Types.LOGOUT_USER :
+      return {
+        ...state,
+        currentUser : null
+      }
     default :
       return state;
   }
