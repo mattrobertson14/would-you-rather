@@ -1,0 +1,17 @@
+import { getAllUsers } from '../Utils/api';
+import * as Types from './types.js';
+
+export const loadUsers = () => {
+  return (dispatch) => {
+    getAllUsers().then(response => {
+      dispatch(updateUsers(response));
+    }).catch(console.log);
+  }
+}
+
+export const updateUsers = ( users ) => {
+  return {
+    type : Types.UPDATE_USERS,
+    users : users
+  }
+}

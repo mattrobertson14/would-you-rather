@@ -3,9 +3,12 @@ import '../stylesheets/Login.css';
 import UserOption from './UserOption';
 import propTypes from 'prop-types';
 import { Card } from './UI';
+import { connect } from 'react-redux';
+import { loadUsers as loadUsersAction } from '../actions/Users';
 
-const Login = ({ users }) => {
+const Login = ({ users, getAllUsers }) => {
   const height = users? (120 + users.length*84) : 120;
+  getAllUsers();
 
   return (
     <div className="Login">
@@ -28,7 +31,16 @@ const Login = ({ users }) => {
 }
 
 Login.propTypes = {
-  users : propTypes.array
+  users : propTypes.array,
+  getAllUsers : propTypes.func
 }
 
-export default Login;
+const mapDispatchToProps = dispatch => ({
+  getAllUsers: () => dispatch(loadUsersAction())
+});
+
+const mapStateToProps = state => ({
+  users: Object.values(state.users)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
