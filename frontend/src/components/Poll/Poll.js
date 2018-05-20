@@ -1,5 +1,6 @@
 import React from 'react';
 import './Poll.css';
+import { Link } from 'react-router-dom';
 //import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -9,8 +10,9 @@ const Poll = ({ question, answered, user }) => {
     return (
       <div className="Poll">
         <p className='Option One'>{ question.optionOne.text }</p>
-        <p className='OptionDivider'>OR</p>
-        <p className='Option Two'>{ question.optionTwo.text }</p>
+        <p className='OptionDivider'>or</p>
+        <p className='Option Two'>{ question.optionTwo.text }?</p>
+        <Link to={'/details/' + question.id} ><i className="material-icons">subject</i><p className='label'>Details</p></Link>
       </div>
     )
   }
@@ -20,8 +22,9 @@ const Poll = ({ question, answered, user }) => {
   return (
     <div className="Poll">
       <p className='Option Selected'>{ question[selected].text }</p>
-      <p className='OptionDivider'>THAN</p>
+      <p className='OptionDivider'>than</p>
       <p className='Option'>{ question[notSelected].text }</p>
+      <Link to={'/details/' + question.id} ><i className="material-icons">subject</i><p className='label'>Details</p></Link>
     </div>
   )
 }

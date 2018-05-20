@@ -1,7 +1,7 @@
 .Poll {
   position: relative;
   display: table;
-  width: 100%;
+  width: 95%;
 }
 
 .Poll .Option {
@@ -28,4 +28,20 @@
   text-align: center;
   padding: 0px 2%;
   width: 4%;
+  font-style: italic;
+}
+
+.Poll a {
+  position: relative;
+  display: inline-block;
+  top: 15px;
+  padding: 5px;
+  margin: 0px 5px;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+
+.Poll a .label {
+  margin: 0px;
 }

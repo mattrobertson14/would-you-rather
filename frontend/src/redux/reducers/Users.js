@@ -2,7 +2,8 @@ import * as Types from '../actions/types'
 
 const initialState = {
   currentUser : null,
-  all : []
+  all : [],
+  byId : {}
 }
 
 function userReducer(state = initialState, action){
@@ -10,7 +11,8 @@ function userReducer(state = initialState, action){
     case Types.UPDATE_USERS :
       return {
         ...state,
-        all : Object.values(action.users)
+        all : Object.values(action.users),
+        byId : action.users
       }
     case Types.LOGIN_USER :
       return {

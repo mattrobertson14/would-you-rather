@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Body.css';
 //import propTypes from 'prop-types';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import { Home, Leaderboard, NewPoll, PollDetails } from '../';
 import { connect } from 'react-redux';
 import { loadQuestions } from '../../redux/actions/Questions'
@@ -16,10 +16,10 @@ class Body extends Component {
   render() {
     return (
       <div className="Body">
-        <Route exact path='/' component={ Home } />
-        <Route path='details/:uuid' component={ PollDetails } />
-        <Route path='/new-poll' component={ NewPoll } />
-        <Route path='/leaderboard' component={ Leaderboard } />
+        <Route path="/" exact component={ Home } />
+        <Route path="/details/:uuid" render={ ({match}) => <PollDetails uuid={match.params.uuid} />} />
+        <Route path="/new-poll" component={ NewPoll } />
+        <Route path="/leaderboard" component={ Leaderboard } />
       </div>
     )
   }
@@ -36,4 +36,4 @@ const mapStateToProps = state => ({
   user: state.users.currentUser
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Body);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Body));
