@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import './stylesheets/index.css';
+import './index.css';
 import Root from './components/Root.js';
-import rootReducer from './reducers';
+import rootReducer from './redux/reducers';
 import registerServiceWorker from './registerServiceWorker';
 
 const store = createStore(
@@ -16,7 +16,7 @@ const store = createStore(
 );
 
 ReactDOM.render(
-	<Root store={store} />, 
+	<Root store={store} />,
 	document.getElementById('root')
 );
 registerServiceWorker();
