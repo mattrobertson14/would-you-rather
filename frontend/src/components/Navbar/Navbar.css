@@ -1,0 +1,29 @@
+.Navbar {
+  position: relative;
+  height: 40px;
+  width: 100%;
+  background-color: white;
+  z-index: 0;
+  box-shadow: 1px 1px 6px rgba(0,0,0,.1);
+}
+
+.Navbar .options {
+  position: relative;
+  width: 80%;
+  height: 100%;
+  margin: 0px auto;
+}
+
+.Navbar .options a {
+  position: relative;
+  display: inline-block;
+  width: 33.33%;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  padding: 11px 0px;
+}
+
+.Navbar .options a:hover {
+  background-color: rgba(0,0,0,.1);
+}

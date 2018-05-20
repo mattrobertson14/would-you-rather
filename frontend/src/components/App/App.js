@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { Header, Body, Login } from '../'
+import { Header, Navbar, Body, Login } from '../'
 
 class App extends Component {
 
@@ -10,7 +10,10 @@ class App extends Component {
       <div className="App">
         <Header />
         { this.props.user?
-          <Body />
+          <span>
+            <Navbar />
+            <Body />
+          </span>
           :
           <Login />
         }

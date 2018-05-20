@@ -1,6 +1,7 @@
 .Body {
   position: relative;
-  width: 90%;
+  background-color: white;
+  width: 80%;
   top: 70px;
   padding: 0px;
   margin: 0px auto;
