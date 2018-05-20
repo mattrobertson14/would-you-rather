@@ -2,7 +2,7 @@ import React from 'react';
 import './Leaderboard.css';
 //import propTypes from 'prop-types';
 
-const Leaderboard = ({}) => {
+const Leaderboard = () => {
 
   return (
     <div className="Leaderboard">

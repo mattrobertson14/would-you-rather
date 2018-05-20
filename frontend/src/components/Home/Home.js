@@ -2,7 +2,7 @@ import React from 'react';
 import './Home.css';
 //import propTypes from 'prop-types';
 
-const Home = ({}) => {
+const Home = () => {
 
   return (
     <div className="Home">

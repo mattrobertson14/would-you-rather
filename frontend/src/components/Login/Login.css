@@ -1,0 +1,33 @@
+.Login {
+  position: relative;
+  top: 60px;
+  width: 400px;
+  height: 500px;
+  box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+  margin: 0px auto;
+}
+
+.Login .LoginTitle {
+  position: relative;
+  height: 55px;
+  width: 100%;
+  margin: 0px;
+  text-align: center;
+  font-size: 30px;
+  top: 25px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.Login .LoginOptions {
+  display: relative;
+  margin-top: 50px;
+}
+
+.Login .LoginOption {
+  padding: 20px 10px;
+}
+
+.Login .LoginOption:hover {
+  background-color: rgba(0,0,0,.1);
+  cursor: pointer;
+}

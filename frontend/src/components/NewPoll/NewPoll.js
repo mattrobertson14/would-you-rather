@@ -2,7 +2,7 @@ import React from 'react';
 import './NewPoll.css';
 //import propTypes from 'prop-types';
 
-const NewPoll = ({}) => {
+const NewPoll = () => {
 
   return (
     <div className="NewPoll">

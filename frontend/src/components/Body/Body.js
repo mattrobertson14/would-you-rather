@@ -4,11 +4,10 @@ import './Body.css';
 import { Route } from 'react-router-dom';
 import { Home, Leaderboard, NewPoll, PollDetails } from '../';
 
-const Body = ({}) => {
+const Body = () => {
 
   return (
     <div className="Body">
-      Body
       <Route exact path='/' render={ Home } />
       <Route path='details/:uuid' render={ PollDetails } />
       <Route path='/new-poll' render={ NewPoll } />

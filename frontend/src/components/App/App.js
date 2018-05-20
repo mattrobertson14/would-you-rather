@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
-import { Header, Body } from '../'
+import { Header, Body, Login } from '../'
 
 class App extends Component {
 
   render() {
     return (
       <div className="App">
-        App
         <Header />
-        <Body />
+        { this.props.user?
+          <Body />
+          :
+          <Login />
+        }
       </div>
     );
   }

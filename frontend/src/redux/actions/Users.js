@@ -1,4 +1,4 @@
-import { getAllUsers } from '../Utils/api';
+import { getAllUsers } from '../../Utils/api';
 import * as Types from './types.js';
 
 export const loadUsers = () => {
