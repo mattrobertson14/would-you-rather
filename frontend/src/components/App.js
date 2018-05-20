@@ -3,8 +3,10 @@ import '../stylesheets/App.css';
 //import { Route } from 'react-router-dom';
 import Login from './Login';
 import Appbar from './Appbar';
+import Game from './Game';
 import ToolbarUserInfo from './ToolbarUserInfo';
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
 
@@ -14,13 +16,15 @@ class App extends Component {
         <Appbar>
           { this.props.user? <ToolbarUserInfo user={ this.props.user } /> : null }
         </Appbar>
-        <div className='MainContent'>
-          { this.props.user?
-            <h1>The game will be here soon</h1>
-            :
-            <Login />
-          }
-        </div>
+        <Route path='/' render={() =>(
+          <div className='MainContent'>
+            { this.props.user?
+              <Game />
+              :
+              <Login />
+            }
+          </div>
+        )} />
       </div>
     );
   }

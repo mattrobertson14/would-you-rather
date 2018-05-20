@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../stylesheets/ToolbarUserInfo.css';
 import { Avatar } from './UI';
 import propTypes from 'prop-types';
-import UserMenu from './UserMenu';
 
 class ToolbarUserInfo extends Component {
 
@@ -41,7 +40,6 @@ class ToolbarUserInfo extends Component {
           <h2>{ this.props.user.name }</h2>
         </div>
         <Avatar image={ this.props.user.avatarURL } size={ 44 } />
-        <UserMenu className={this.state.showMenu? 'UserMenu Shown' : 'UserMenu'}/>
       </div>
     )
   }

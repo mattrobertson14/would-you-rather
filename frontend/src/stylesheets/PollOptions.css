@@ -1,0 +1,26 @@
+.PollOptions {
+  position: relative;
+  overflow:auto;
+  margin: 0px auto;
+  width: 70%;
+  height: auto;
+}
+
+.PollOptions .Option {
+  position: relative;
+  display: inline-grid;
+  width: 49%;
+  top: 0px;
+  bottom: 0px;
+}
+
+
+.PollOptions .Option.One:hover {
+  background-color: rgba(0, 57, 163, 0.3);
+  cursor: pointer;
+}
+
+.PollOptions .Option.Two:hover {
+  background-color: rgba(255, 0, 0, 0.3);
+  cursor: pointer;
+}
