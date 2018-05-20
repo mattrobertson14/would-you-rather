@@ -15,7 +15,7 @@ const Login = ({ loadUsers, loginUser, users }) => {
       <div className='LoginOptions'>
         { users?
           users.all.map(user => (
-            <LoginOption key={ user.id }  user={ user } login={ (user)=>loginUser(user) } />
+            <LoginOption key={ user.id }  user={ user } login={ ()=> loginUser( user ) } />
           ))
           :
           null
