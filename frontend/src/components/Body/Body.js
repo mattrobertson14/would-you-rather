@@ -14,23 +14,15 @@ class Body extends Component {
   }
 
   render() {
-    let unanswered = this.props.questions.filter(q => !hasVoted(this.props.user.id, q))
     return (
       <div className="Body">
-        <Route exact path='/' render={()=><Home questions={ unanswered } /> } />
+        <Route exact path='/' component={ Home } />
         <Route path='details/:uuid' component={ PollDetails } />
         <Route path='/new-poll' component={ NewPoll } />
         <Route path='/leaderboard' component={ Leaderboard } />
       </div>
     )
   }
-}
-
-const hasVoted = (userId, question) => {
-  if (question.optionOne.votes.includes(userId) || question.optionTwo.votes.includes(userId)){
-    return true;
-  }
-  return false;
 }
 
 //Body.propTypes = {}
@@ -40,7 +32,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-  questions: state.questions.all,
+  questions: state.questions,
   user: state.users.currentUser
 });
 

@@ -1,7 +1,9 @@
 import * as Types from '../actions/types'
 
 const initialState = {
-  all: []
+  all: [],
+  questionView: 'unanswered',
+  loading: true
 }
 
 function questionReducer(state = initialState, action){
@@ -9,7 +11,14 @@ function questionReducer(state = initialState, action){
     case Types.UPDATE_QUESTIONS :
       return {
         ...state,
-        all: Object.values(action.questions)
+        all: Object.values(action.questions),
+        byId: action.questions,
+        loading: false
+      }
+    case Types.UPDATE_QUESTION_VIEW :
+      return {
+        ...state,
+        questionView: action.view
       }
     default :
       return state;

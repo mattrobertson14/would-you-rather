@@ -17,9 +17,9 @@
   },
   "scripts": {
     "start": "npm run buildComponents && react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run buildComponents && react-scripts build",
     "buildComponents": "node ./src/components/buildIndex.js",
-    "test": "react-scripts test --env=jsdom",
+    "test": "npm run buildComponents && react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
 }

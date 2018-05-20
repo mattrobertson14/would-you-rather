@@ -15,3 +15,10 @@ export const updateQuestions = ( questions ) => {
     questions: questions
   }
 }
+
+export const updateQuestionView = ( view ) => {
+  return {
+    type: Types.UPDATE_QUESTION_VIEW,
+    view: view
+  }
+}
