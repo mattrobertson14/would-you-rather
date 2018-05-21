@@ -20,6 +20,11 @@ function questionReducer(state = initialState, action){
         ...state,
         questionView: action.view
       }
+    case Types.SET_LOADING :
+      return {
+        ...state,
+        loading: true
+      }
     default :
       return state;
   }

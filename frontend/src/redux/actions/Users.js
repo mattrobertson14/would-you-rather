@@ -28,3 +28,9 @@ export const logoutUser = () => {
     type : Types.LOGOUT_USER
   }
 }
+
+export const setLoading = () => {
+  return {
+    type: Types.SET_LOADING
+  }
+}

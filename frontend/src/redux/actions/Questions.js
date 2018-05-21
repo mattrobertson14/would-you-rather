@@ -22,3 +22,9 @@ export const updateQuestionView = ( view ) => {
     view: view
   }
 }
+
+export const setLoading = () => {
+  return {
+    type: Types.SET_LOADING
+  }
+}

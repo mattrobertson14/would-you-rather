@@ -26,6 +26,11 @@ function userReducer(state = initialState, action){
         ...state,
         currentUser : null
       }
+    case Types.SET_LOADING :
+      return {
+        ...state,
+        loading: true
+      }
     default :
       return state;
   }
