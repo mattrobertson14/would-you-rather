@@ -3,17 +3,17 @@ import './PollDetails.css';
 //import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 const PollDetails = ({ questions, users, uuid }) => {
   let question = questions? questions[uuid] : null;
   return (
     <div className="PollDetails">
-      <Link to='/'>Go Home</Link>
-      <h1>Poll Details</h1>
+      <h1>Would You Rather</h1>
       {questions?
         <div className="details">
           <p>Author: {users[question.author].name}</p>
-          <p>Timestamp: {question.timestamp}</p>
+          <p>Timestamp: {formatTime(question.timestamp)}</p>
           <p>Option 1: {question.optionOne.text}</p>
           <p>Votes ({question.optionOne.votes.length}):</p>
           { question.optionOne.votes.map(v => (
@@ -30,6 +30,11 @@ const PollDetails = ({ questions, users, uuid }) => {
       }
     </div>
   )
+}
+
+let formatTime = (timestamp) => {
+  let date = moment(timestamp).format('dddd, MMMM Do YYYY, h:mm:ss a');
+  return date;
 }
 
 //PollDetails.propTypes = {}

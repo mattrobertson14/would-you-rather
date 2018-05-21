@@ -8,7 +8,7 @@ const PollList = ({ questions, answered }) => {
   return (
     <div className="PollList">
       {
-        questions.map(q => (
+        questions.sort((a,b) => b.timestamp-a.timestamp).map(q => (
           <Poll key={q.id} question={q} answered={ answered } />
         ))
       }

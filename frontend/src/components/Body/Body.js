@@ -18,7 +18,7 @@ class Body extends Component {
       <div className="Body">
         <Route path="/" exact component={ Home } />
         <Route path="/details/:uuid" render={ ({match}) => <PollDetails uuid={match.params.uuid} />} />
-        <Route path="/new-poll" component={ NewPoll } />
+        <Route path="/add" component={ NewPoll } />
         <Route path="/leaderboard" component={ Leaderboard } />
       </div>
     )

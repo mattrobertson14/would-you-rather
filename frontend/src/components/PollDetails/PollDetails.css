@@ -1,26 +1,7 @@
-.PollDetails a {
-  position:absolute;
-  float: left;
-  border: 1px solid rgba(0,0,0,.4);
-  border-radius: 4px;
-  margin: 15px;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: black;
-}
-
-.PollDetails a:hover {
-  background-color: rgba(0,0,0,.025);
-}
-
-.PollDetails a:active {
-  background-color: rgba(0,0,0,.2);
-}
-
 .PollDetails h1 {
   position: relative;
   margin: 0px;
-  width: 150px;
+  width: 200px;
   margin: 0px auto;
   top: 15px;
 }

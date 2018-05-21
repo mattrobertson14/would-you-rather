@@ -11,7 +11,7 @@ const Navbar = ({ resetQuestionView }) => {
     <div className="Navbar">
       <div className='options'>
         <Link to='/' onClick={ resetQuestionView }>Home</Link>
-        <Link to='/new-poll'>New Poll</Link>
+        <Link to='/add'>New Poll</Link>
         <Link to='/scoreboard'>Scoreboard</Link>
       </div>
     </div>
