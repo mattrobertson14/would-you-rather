@@ -30,10 +30,31 @@
 }
 
 .Header .UserInfo .Username {
-  position: relative;
+  position: absolute;
   float: left;
   width: 120px;
-  padding: 0px 10px 0px 0px;
+  margin: 0px;
   text-align: right;
   top: 5px;
+}
+
+.Header .UserInfo a {
+  position: absolute;
+  left: 65px;
+  bottom: 5px;
+  text-decoration: none;
+  color: black;
+  border: 1px solid grey;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+.Header .UserInfo a:hover {
+  background-color: rgba(0,0,0,.15);
+}
+
+.Header .UserInfo a:active {
+  background-color: grey;
+  color: white;
+  box-shadow: 2px 2px 8px rgba(0,0,0,.3);
 }

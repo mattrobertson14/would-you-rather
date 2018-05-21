@@ -3,15 +3,21 @@ import './Header.css';
 //import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../redux/actions/Users'
+import { Link } from 'react-router-dom';
 
 const Header = ({ user, logout }) => {
 
   return (
     <div className="Header">
       <p className="HeaderTitle">Would You Rather</p>
-      <div className="UserInfo" onClick={ logout }>
-        <p className="Username">{ user? user.name : null }</p>
-      </div>
+      { user?
+        <div className="UserInfo" >
+          <p className="Username">{ user.name }</p>
+          <Link to='/' onClick={ logout }>Logout</Link>
+        </div>
+        :
+        null
+      }
     </div>
   )
 }
