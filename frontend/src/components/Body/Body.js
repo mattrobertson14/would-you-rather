@@ -4,8 +4,7 @@ import './Body.css';
 import { Route, withRouter } from 'react-router-dom';
 import { Home, Leaderboard, NewPoll, PollDetails } from '../';
 import { connect } from 'react-redux';
-import { loadQuestions } from '../../redux/actions/Questions'
-
+import { loadQuestions } from '../../redux/actions/Questions';
 
 class Body extends Component {
 

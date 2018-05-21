@@ -3,7 +3,8 @@ import * as Types from '../actions/types'
 const initialState = {
   currentUser : null,
   all : [],
-  byId : {}
+  byId : {},
+  loading: true
 }
 
 function userReducer(state = initialState, action){
@@ -12,7 +13,8 @@ function userReducer(state = initialState, action){
       return {
         ...state,
         all : Object.values(action.users),
-        byId : action.users
+        byId : action.users,
+        loading: false
       }
     case Types.LOGIN_USER :
       return {

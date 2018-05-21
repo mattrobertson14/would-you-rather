@@ -4,13 +4,15 @@ import './Home.css';
 import { connect } from 'react-redux';
 import { updateQuestionView as updateQuestionViewAction } from '../../redux/actions/Questions';
 import { PollList } from '../';
+import { BarLoader } from 'react-spinners';
 
-const Home = ({ questions, questionView, updateQuestionView, user }) => {
+const Home = ({ questions, questionView, updateQuestionView, user, loading }) => {
   let unanswered = questions.all.filter(q => !hasVoted(user.id, q))
   let answered = questions.all.filter(q => hasVoted(user.id, q))
 
   return (
     <div className="Home">
+      {loading? <BarLoader height={8} color={'#4192F4'} /> : null }
       <h1 className='HomeHeader'>{questionView === 'answered'? 'You Would Rather...' : 'Would You Rather...' }</h1>
       <div className='changeView'>
         <p className='ViewTag'>View</p>
@@ -45,6 +47,7 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => ({
   questions: state.questions,
   questionView: state.questions.questionView,
+  loading: state.questions.loading,
   user: state.users.currentUser
 });
 

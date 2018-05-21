@@ -1,6 +1,6 @@
 {
-  "name": "squirrel2",
-  "version": "0.1.0",
+  "name": "would-you-rather",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
