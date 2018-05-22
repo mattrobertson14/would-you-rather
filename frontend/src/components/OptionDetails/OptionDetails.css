@@ -1,0 +1,42 @@
+.OptionDetails {
+  padding-bottom: 30px;
+}
+
+.OptionDetails .Option {
+  width: 100%;
+  text-align: left;
+  font-size: 24px;
+  padding: 5px;
+  font-weight: bold;
+  margin: 0px 0px 15px;
+}
+
+.OptionDetails .Option.Selected {
+  border: 1px solid #0EB01C;
+}
+
+.OptionDetails .SelectedLabel {
+  color: #0EB01C;
+  margin: 0px;
+  font-size: 12px;
+}
+
+.OptionDetails .VoteBreakdown {
+  width: 95%;
+  margin: 0px auto;
+  text-align: left;
+  font-size: 18px;
+  color: rgba(0,0,0,.75);
+}
+
+.OptionDetails .VoteListLabel{
+  width: 95%;
+  margin: 10px auto;
+  text-align: left;
+}
+
+ .OptionDetails .VoteList {
+   width: 90%;
+   margin: 10px auto;
+   text-align: left;
+ }
