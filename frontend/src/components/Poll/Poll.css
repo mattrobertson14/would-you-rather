@@ -13,11 +13,6 @@
   font-size: 20px;
 }
 
-.Poll .Option.One:hover, .Poll .Option.Two:hover {
-  background-color: rgba(0,0,0,.05);
-  cursor: pointer;
-}
-
 .Poll .Option.Selected {
   background-color: rgba(0,0,0,.025);
 }

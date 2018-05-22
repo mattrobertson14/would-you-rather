@@ -1,6 +1,7 @@
 import React from 'react';
 import './PollDetails.css';
 //import propTypes from 'prop-types';
+import moment from 'moment';
 import { connect } from 'react-redux';
 import { saveQuestionAnswer } from '../../redux/actions/Questions';
 import Answered from './Answered';
@@ -21,6 +22,7 @@ const PollDetails = ({ questions, users, user, uuid, loading, castVote }) => {
         :
         <span>
           <h1>Would You Rather</h1>
+          <p className="pollInfo">This poll was asked by {users[question.author].name} on {getDate(question.timestamp)} at {getTime(question.timestamp)}</p>
           {answered?
             <Answered question={question} users={users} user={user} />
             :
@@ -30,6 +32,16 @@ const PollDetails = ({ questions, users, user, uuid, loading, castVote }) => {
       }
     </div>
   )
+}
+
+const getDate = (timestamp) => {
+  let date = moment(timestamp).format('dddd, MMMM Do YYYY');
+  return date;
+}
+
+const getTime = (timestamp) => {
+  let time = moment(timestamp).format('hh:mm:ss a');
+  return time;
 }
 
 const NotFound = () => {

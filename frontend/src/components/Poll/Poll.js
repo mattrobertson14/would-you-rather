@@ -15,10 +15,10 @@ const Poll = ({ question, answered, user, saveAnswer, history }) => {
   if (!answered){
     return (
       <div className="Poll">
-        <p className='Option One' onClick={() => castVote(user.id, question.id, 'optionOne')}>{ question.optionOne.text }</p>
+        <p className='Option One'>{ question.optionOne.text }</p>
         <p className='OptionDivider'>or</p>
-        <p className='Option Two' onClick={() => castVote(user.id, question.id, 'optionTwo')}>{ question.optionTwo.text }?</p>
-        <Link to={'/details/' + question.id} ><i className="material-icons">subject</i><p className='label'>Details</p></Link>
+        <p className='Option Two'>{ question.optionTwo.text }?</p>
+        <Link to={'/details/' + question.id} ><i className="material-icons">arrow_forward</i><p className='label'>Vote</p></Link>
       </div>
     )
   }

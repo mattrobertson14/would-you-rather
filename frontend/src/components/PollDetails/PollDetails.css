@@ -38,13 +38,13 @@
   font-size: 24px;
   padding: 5px;
   font-weight: bold;
-  margin: 30px auto;
+  margin: 0px auto;
   padding: 20px 0px;
 }
 
 .Unanswered {
   position: relative;
-  top: 40px;
+  top: 20px;
 }
 
 .Unanswered .Option:hover {
