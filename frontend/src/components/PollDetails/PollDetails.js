@@ -2,51 +2,33 @@ import React from 'react';
 import './PollDetails.css';
 //import propTypes from 'prop-types';
 import { connect } from 'react-redux';
-import moment from 'moment';
-import { OptionDetails } from '../';
+import Answered from './Answered';
+import Unanswered from './Unanswered';
+import { BarLoader } from 'react-spinners';
 
-const PollDetails = ({ questions, users, user, uuid }) => {
+const PollDetails = ({ questions, users, user, uuid, loading }) => {
   let question = questions? questions[uuid] : null;
+  let answered = question? question.optionOne.votes.includes(user.id) || question.optionTwo.votes.includes(user.id) : null;
 
   if (questions && !question)
     return (<NotFound />);
 
   return (
     <div className="PollDetails">
-      <h1>Would You Rather</h1>
-      {questions?
-        <div className="details">
-          <p className="pollInfo">This poll was asked by {users[question.author].name} on {getDate(question.timestamp)} at {getTime(question.timestamp)}</p>
-          <OptionDetails
-            number={1}
-            option={question.optionOne.text}
-            votes={{for: question.optionOne.votes, against: question.optionTwo.votes}}
-            users={users}
-            currentUser={user}
-          />
-          <OptionDetails
-            number={2}
-            option={question.optionTwo.text}
-            votes={{for: question.optionTwo.votes, against: question.optionOne.votes}}
-            users={users}
-            currentUser={user}
-          />
-        </div>
+      {loading?
+        <BarLoader height={8} color={'#4192F4'} />
         :
-        null
+        <span>
+          <h1>Would You Rather</h1>
+          {answered?
+            <Answered question={question} users={users} user={user} />
+            :
+            <Unanswered question={question} user={user} />
+          }
+        </span>
       }
     </div>
   )
-}
-
-const getDate = (timestamp) => {
-  let date = moment(timestamp).format('dddd, MMMM Do YYYY');
-  return date;
-}
-
-const getTime = (timestamp) => {
-  let time = moment(timestamp).format('hh:mm:ss a');
-  return time;
 }
 
 const NotFound = () => {
@@ -68,6 +50,7 @@ const mapStateToProps = (state, ownProps) => ({
   questions: state.questions.byId,
   users: state.users.byId,
   user: state.users.currentUser,
+  loading: state.questions.loading,
   uuid: ownProps.uuid
 });
 
