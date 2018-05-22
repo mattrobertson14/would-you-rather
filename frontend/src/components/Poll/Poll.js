@@ -9,9 +9,9 @@ const Poll = ({ question, answered, user }) => {
   if (!answered){
     return (
       <div className="Poll">
-        <p className='Option One'>{ question.optionOne.text }</p>
+        <p className='Option One' onClick={() => console.log('soon to choose Option 1')}>{ question.optionOne.text }</p>
         <p className='OptionDivider'>or</p>
-        <p className='Option Two'>{ question.optionTwo.text }?</p>
+        <p className='Option Two' onClick={() => console.log('soon to choose Option 2')}>{ question.optionTwo.text }?</p>
         <Link to={'/details/' + question.id} ><i className="material-icons">subject</i><p className='label'>Details</p></Link>
       </div>
     )
@@ -32,7 +32,7 @@ const Poll = ({ question, answered, user }) => {
 //Poll.propTypes = {}
 
 const mapDispatchToProps = dispatch => ({
-
+  
 });
 
 const mapStateToProps = (state, ownProps) => ({

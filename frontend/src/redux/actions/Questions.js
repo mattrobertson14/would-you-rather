@@ -1,4 +1,4 @@
-import { getAllQuestions } from '../../Utils/api';
+import { getAllQuestions, voteForQuestion } from '../../Utils/api';
 import * as Types from './types.js';
 
 export const loadQuestions = () => {
@@ -26,5 +26,13 @@ export const updateQuestionView = ( view ) => {
 export const setLoading = () => {
   return {
     type: Types.SET_LOADING
+  }
+}
+
+export const saveQuestionAnswer = (userId, questionId, answer) => {
+  return (dispatch) => {
+    voteForQuestion().then(res=>{
+      console.log('res from redux:' + res)
+    }).catch(console.log);
   }
 }
