@@ -25,6 +25,16 @@ function questionReducer(state = initialState, action){
         ...state,
         loading: true
       }
+    case Types.NEW_QUESTION :
+      state.all.push(action.question);
+      return {
+        ...state,
+        byId: {
+          ...state.byId,
+          [action.question.id]: action.question
+        },
+        loading: false
+      }
     default :
       return state;
   }

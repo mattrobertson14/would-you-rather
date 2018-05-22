@@ -1,9 +1,23 @@
 import React from 'react';
 import './NewPoll.css';
 //import propTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { newQuestion } from '../../redux/actions/Questions';
+import { withRouter } from 'react-router-dom';
 
-const NewPoll = () => {
+const NewPoll = ({ addQuestion, user, history }) => {
   let optionOne, optionTwo;
+
+  const submit = () => {
+    let one = optionOne.value;
+    let two = optionTwo.value
+    if ( one.splice !== '' && two.splice !== ''){
+      addQuestion(one, two, user.id);
+      optionOne.value = '';
+      optionTwo.value = '';
+      history.push('/');
+    }
+  }
 
   return (
     <div className="NewPoll">
@@ -13,11 +27,19 @@ const NewPoll = () => {
       <p className="or">or</p>
       <label htmlFor='optionTwo'>Option 2</label>
       <input ref={i=>optionTwo=i} className="optionTwo" placeholder='e.x Do that'/>
-      <button>Submit</button>
+      <button onClick={submit}>Submit</button>
     </div>
   )
 }
 
 //NewPoll.propTypes = {}
 
-export default NewPoll;
+const mapDispatchToProps = dispatch => ({
+  addQuestion: (one, two, uId) => dispatch(newQuestion(one, two, uId))
+});
+
+const mapStateToProps = state => ({
+  user: state.users.currentUser
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewPoll));

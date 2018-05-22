@@ -1,4 +1,4 @@
-import { _getUsers, _getQuestions, _saveQuestionAnswer } from './_DATA.js';
+import { _getUsers, _getQuestions, _saveQuestionAnswer, _saveQuestion } from './_DATA.js';
 
 export const getAllUsers = () => {
   return _getUsers().then( users => {
@@ -20,6 +20,19 @@ export const voteForQuestion = ( authedUser, qid, answer ) => {
   return _saveQuestionAnswer({authedUser, qid, answer}).then(q => {
     return q;
   }).catch( err => {
+    console.log(err);
+  });
+}
+
+export const addQuestion = (optionOne, optionTwo, authorId) => {
+  let question = {}
+  question.optionOneText = optionOne;
+  question.optionTwoText = optionTwo;
+  question.author = authorId;
+
+  return _saveQuestion(question).then(res => {
+    return res;
+  }).catch(err => {
     console.log(err);
   });
 }
