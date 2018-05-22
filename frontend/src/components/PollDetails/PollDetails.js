@@ -7,6 +7,10 @@ import { OptionDetails } from '../';
 
 const PollDetails = ({ questions, users, user, uuid }) => {
   let question = questions? questions[uuid] : null;
+
+  if (questions && !question)
+    return (<NotFound />);
+
   return (
     <div className="PollDetails">
       <h1>Would You Rather</h1>
@@ -43,6 +47,15 @@ const getDate = (timestamp) => {
 const getTime = (timestamp) => {
   let time = moment(timestamp).format('hh:mm:ss a');
   return time;
+}
+
+const NotFound = () => {
+  return (
+    <div className="NotFound">
+      <p className="NotFoundtitle">404</p>
+      <p>The poll you are trying to access doesn't seem to appear in our system. So sorry</p>
+    </div>
+  )
 }
 
 //PollDetails.propTypes = {}
