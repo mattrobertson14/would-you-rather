@@ -2,11 +2,12 @@ import React from 'react';
 import './PollDetails.css';
 //import propTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { saveQuestionAnswer } from '../../redux/actions/Questions';
 import Answered from './Answered';
 import Unanswered from './Unanswered';
 import { BarLoader } from 'react-spinners';
 
-const PollDetails = ({ questions, users, user, uuid, loading }) => {
+const PollDetails = ({ questions, users, user, uuid, loading, castVote }) => {
   let question = questions? questions[uuid] : null;
   let answered = question? question.optionOne.votes.includes(user.id) || question.optionTwo.votes.includes(user.id) : null;
 
@@ -23,7 +24,7 @@ const PollDetails = ({ questions, users, user, uuid, loading }) => {
           {answered?
             <Answered question={question} users={users} user={user} />
             :
-            <Unanswered question={question} user={user} />
+            <Unanswered question={question} user={user} castVote={castVote}/>
           }
         </span>
       }
@@ -43,7 +44,7 @@ const NotFound = () => {
 //PollDetails.propTypes = {}
 
 const mapDispatchToProps = dispatch => ({
-
+  castVote : (uId, qId, answer) => dispatch(saveQuestionAnswer(uId, qId, answer))
 });
 
 const mapStateToProps = (state, ownProps) => ({
