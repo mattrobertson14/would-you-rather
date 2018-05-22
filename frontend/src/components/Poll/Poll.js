@@ -1,16 +1,10 @@
 import React from 'react';
 import './Poll.css';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //import propTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { saveQuestionAnswer } from '../../redux/actions/Questions';
+import { connect } from 'react-redux'
 
-const Poll = ({ question, answered, user, saveAnswer, history }) => {
-
-  const castVote = (uId, qId, answer) => {
-    saveAnswer(uId, qId, answer);
-    setTimeout(()=>history.push('/details/' + question.id), 500);
-  }
+const Poll = ({ question, answered, user }) => {
 
   if (!answered){
     return (
@@ -37,9 +31,7 @@ const Poll = ({ question, answered, user, saveAnswer, history }) => {
 
 //Poll.propTypes = {}
 
-const mapDispatchToProps = dispatch => ({
-  saveAnswer : (uId, qId, answer) => dispatch(saveQuestionAnswer(uId, qId, answer))
-});
+const mapDispatchToProps = null;
 
 const mapStateToProps = (state, ownProps) => ({
   user: state.users.currentUser,
@@ -47,4 +39,4 @@ const mapStateToProps = (state, ownProps) => ({
   answered: ownProps.answered
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Poll));
+export default connect(mapStateToProps, mapDispatchToProps)(Poll);
