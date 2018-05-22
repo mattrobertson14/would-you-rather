@@ -1,4 +1,4 @@
-import { _getUsers, _getQuestions } from './_DATA.js';
+import { _getUsers, _getQuestions, _saveQuestionAnswer } from './_DATA.js';
 
 export const getAllUsers = () => {
   return _getUsers().then( users => {
@@ -12,6 +12,14 @@ export const getAllQuestions = () => {
   return _getQuestions().then( questions => {
     return questions;
   }).catch((err) => {
+    console.log(err);
+  });
+}
+
+export const voteForQuestion = ( userId, questionId, answer ) => {
+  return _saveQuestionAnswer().then(res => {
+    console.log(res);
+  }).catch( err => {
     console.log(err);
   });
 }
