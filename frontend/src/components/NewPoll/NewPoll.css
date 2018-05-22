@@ -1,0 +1,78 @@
+.NewPoll .NewPollTitle {
+  position: relative;
+  top: 15px;
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+  padding-bottom: 50px;
+}
+
+.NewPoll .or {
+  position: relative;
+  width: 40px;
+  text-align: center;
+  font-style: italic;
+  margin: 20px auto 10px;
+}
+
+.NewPoll input {
+  font-family: 'Marvel';
+  padding: 0px 10px;
+  display: block;
+  margin: 0px auto;
+  width: 400px;
+  height: 40px;
+  font-size: 16px;
+  outline:none;
+  border: 1px solid rgba(0,0,0,.1);
+}
+
+.NewPoll input::placeholder {
+  font-size: 14px;
+}
+
+.NewPoll input:focus::placeholder {
+  opacity: 0;
+}
+
+.NewPoll input:focus {
+  border: 1px solid #0EB01C;
+}
+
+.NewPoll label {
+  position: relative;
+  display: block;
+  width: 36px;
+  padding: 0px 4px;
+  margin: 0px auto;
+  right: 180px;
+  font-size: 12px;
+  background-color: white;
+  top: 8px;
+  color: rgba(0,0,0,.8);
+}
+
+.NewPoll button {
+  position: relative;
+  left: 45%;
+  font-family: 'Marvel';
+  margin: 50px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 3px;
+  background-color: white;
+  cursor: pointer;
+  width: 10%;
+  box-shadow: none;
+  border: 1px solid rgba(0,0,0,.1);
+  outline: none;
+}
+
+.NewPoll button:hover {
+  background-color: rgba(14,176,28,.1);
+}
+
+.NewPoll button:active {
+  background-color: rgba(14,176,28,.6);
+  box-shadow: 2px 2px 10px rgba(0,0,0,.3);
+}
