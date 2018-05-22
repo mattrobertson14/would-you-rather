@@ -31,8 +31,9 @@ export const setLoading = () => {
 
 export const saveQuestionAnswer = (userId, questionId, answer) => {
   return (dispatch) => {
-    voteForQuestion().then(res=>{
-      console.log('res from redux:' + res)
+    voteForQuestion(userId, questionId, answer).then(()=>{
+      dispatch(setLoading());
+      dispatch(loadQuestions());
     }).catch(console.log);
   }
 }

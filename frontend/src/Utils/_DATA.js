@@ -1,7 +1,7 @@
 let users = {
   sarahedo: {
-    id: 'michaellascholz',
-    name: 'Michaella Scholz',
+    id: 'sarahedo',
+    name: 'Sarah Edo',
     avatarURL: null,
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',

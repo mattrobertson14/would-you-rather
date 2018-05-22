@@ -16,9 +16,9 @@ export const getAllQuestions = () => {
   });
 }
 
-export const voteForQuestion = ( userId, questionId, answer ) => {
-  return _saveQuestionAnswer().then(res => {
-    console.log(res);
+export const voteForQuestion = ( authedUser, qid, answer ) => {
+  return _saveQuestionAnswer({authedUser, qid, answer}).then(q => {
+    return q;
   }).catch( err => {
     console.log(err);
   });

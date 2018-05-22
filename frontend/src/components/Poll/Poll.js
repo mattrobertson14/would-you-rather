@@ -1,17 +1,23 @@
 import React from 'react';
 import './Poll.css';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 //import propTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { saveQuestionAnswer } from '../../redux/actions/Questions';
 
-const Poll = ({ question, answered, user }) => {
+const Poll = ({ question, answered, user, saveAnswer, history }) => {
+
+  const castVote = (uId, qId, answer) => {
+    saveAnswer(uId, qId, answer);
+    setTimeout(()=>history.push('/details/' + question.id), 500);
+  }
 
   if (!answered){
     return (
       <div className="Poll">
-        <p className='Option One' onClick={() => console.log('soon to choose Option 1')}>{ question.optionOne.text }</p>
+        <p className='Option One' onClick={() => castVote(user.id, question.id, 'optionOne')}>{ question.optionOne.text }</p>
         <p className='OptionDivider'>or</p>
-        <p className='Option Two' onClick={() => console.log('soon to choose Option 2')}>{ question.optionTwo.text }?</p>
+        <p className='Option Two' onClick={() => castVote(user.id, question.id, 'optionTwo')}>{ question.optionTwo.text }?</p>
         <Link to={'/details/' + question.id} ><i className="material-icons">subject</i><p className='label'>Details</p></Link>
       </div>
     )
@@ -32,7 +38,7 @@ const Poll = ({ question, answered, user }) => {
 //Poll.propTypes = {}
 
 const mapDispatchToProps = dispatch => ({
-  
+  saveAnswer : (uId, qId, answer) => dispatch(saveQuestionAnswer(uId, qId, answer))
 });
 
 const mapStateToProps = (state, ownProps) => ({
@@ -41,4 +47,4 @@ const mapStateToProps = (state, ownProps) => ({
   answered: ownProps.answered
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Poll);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Poll));
