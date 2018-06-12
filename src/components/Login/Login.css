@@ -1,9 +1,10 @@
 .Login {
   position: relative;
+  background-color: rgba(255,255,255,1);
   top: 60px;
   width: 400px;
   height: 500px;
-  box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+  box-shadow: 1px 1px 10px rgba(0,0,0,.4);
   margin: 0px auto;
 }
 

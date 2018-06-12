@@ -1,5 +1,6 @@
 export {default as App} from "./App/App.js"
 export {default as Body} from "./Body/Body.js"
+export {default as createComponent} from "./createComponent.js"
 export {default as Header} from "./Header/Header.js"
 export {default as Home} from "./Home/Home.js"
 export {default as Leaderboard} from "./Leaderboard/Leaderboard.js"
