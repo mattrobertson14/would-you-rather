@@ -12,7 +12,7 @@ const Poll = ({ question, answered, user }) => {
         <p className='Option One'>{ question.optionOne.text }</p>
         <p className='OptionDivider'>or</p>
         <p className='Option Two'>{ question.optionTwo.text }?</p>
-        <Link to={'/details/' + question.id} ><i className="material-icons">arrow_forward</i><p className='label'>Vote</p></Link>
+        <Link to={'/questions/' + question.id} ><i className="material-icons">arrow_forward</i><p className='label'>Vote</p></Link>
       </div>
     )
   }
@@ -24,7 +24,7 @@ const Poll = ({ question, answered, user }) => {
       <p className='Option Selected'>{ question[selected].text }</p>
       <p className='OptionDivider'>than</p>
       <p className='Option'>{ question[notSelected].text }</p>
-      <Link to={'/details/' + question.id} ><i className="material-icons">subject</i><p className='label'>Details</p></Link>
+      <Link to={'/questions/' + question.id} ><i className="material-icons">subject</i><p className='label'>Details</p></Link>
     </div>
   )
 }
