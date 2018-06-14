@@ -5,7 +5,7 @@ import './LoginOption.css';
 const LoginOption = ({ user, login }) => {
   return (
     <div className="LoginOption" onClick={login}>
-      <img src={`${user.avatarURL}`} className='avatar' />
+      <img src={`${user.avatarURL}`} className='avatar' alt={`The avatar for ${user.name}`} />
       <span>{ user.name }</span>
     </div>
   )

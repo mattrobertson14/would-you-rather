@@ -7,7 +7,7 @@ const exportCodes = dirContents
   .filter(entry=>(entry!=='index.js'))
   .filter(entry=>(entry!=='buildIndex.js'))
   .map(entry=>{
-    if(entry.indexOf('.js') != -1){
+    if(entry.indexOf('.js') !== -1){
       const name = entry.split('.')[0];
       return 'export {default as ' + name + '} from "./' + entry + '"';
     }else{
@@ -16,4 +16,3 @@ const exportCodes = dirContents
   })
 
 fs.writeFileSync(path.join(__dirname, 'index.js'), exportCodes.join('\n'));
-
