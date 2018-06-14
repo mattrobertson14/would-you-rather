@@ -29,6 +29,7 @@ function questionReducer(state = initialState, action){
       state.all.push(action.question);
       return {
         ...state,
+        questionView: 'unanswered',
         byId: {
           ...state.byId,
           [action.question.id]: action.question
