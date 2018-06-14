@@ -22,6 +22,7 @@ const PollDetails = ({ questions, users, user, uuid, loading, castVote }) => {
         :
         <span>
           <h1>Would You Rather</h1>
+          <img src={`${users[question.author].avatarURL}`} className='avatar' />
           <p className="pollInfo">This poll was asked by {users[question.author].name} on {getDate(question.timestamp)} at {getTime(question.timestamp)}</p>
           {answered?
             <Answered question={question} users={users} user={user} />

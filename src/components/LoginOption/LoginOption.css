@@ -1,0 +1,10 @@
+.LoginOption .avatar {
+  position: relative;
+  top: 2px;
+}
+
+.LoginOption span {
+  position: relative;
+  bottom: 22.5px;
+  left: 20px;
+}
