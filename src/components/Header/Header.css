@@ -28,6 +28,7 @@
   float: right;
   height: inherit;
   cursor: pointer;
+  color: white;
 }
 
 .Header .UserInfo .Username {
@@ -48,6 +49,7 @@
   border: 1px solid grey;
   padding: 3px 8px;
   border-radius: 3px;
+  color: white;
 }
 
 .Header .UserInfo a:hover {
