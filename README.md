@@ -3,8 +3,11 @@
 ## Running the application
 
 In order to run the application you will need to run the following two commands
+
 `npm install` - This will install all of the needed packages for the project
+
 `npm start` - This will build the index file and start up your application on localhost:3000
+
 
 ### What the buildIndex.js and createComponent.js files are
 
