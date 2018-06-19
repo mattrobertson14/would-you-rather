@@ -1,0 +1,31 @@
+.LeaderBoardTable {
+  display: table;
+  position: relative;
+  width: 100%;
+}
+
+.LeaderBoardTable .TableHeader {
+  position: relative;
+  display: table-row;
+  width: inherit;
+}
+
+.LeaderBoardTable .HCell {
+  position: relative;
+  display: table-cell;
+  width: 10%;
+  padding: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
+.LeaderBoardTable .HCell ~ .HCell{
+  width: 22.5%;
+}
+
+.LeaderBoardTable .HCell i {
+  position: absolute;
+  left: 43%;
+  bottom: 15px;
+  font-size: 32px;
+}

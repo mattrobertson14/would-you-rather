@@ -2,6 +2,7 @@ import React from 'react';
 import './Leaderboard.css';
 //import propTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { LeaderBoardTable } from '../';
 
 const Leaderboard = ({ questions, questionsObj, users, usersObj }) => {
 
@@ -21,6 +22,8 @@ const Leaderboard = ({ questions, questionsObj, users, usersObj }) => {
       answered,
       total
     }
+
+    return u;
   })
 
   let sorted = users.sort((a,b) => countObj[b.id].total - countObj[a.id].total);
@@ -28,7 +31,7 @@ const Leaderboard = ({ questions, questionsObj, users, usersObj }) => {
   return (
     <div className="Leaderboard">
       <h1>Leaderboard</h1>
-      {sorted.map(usr => <p>{usr.name} - {countObj[usr.id].total}</p>)}
+      <LeaderBoardTable countInfo={countObj} users={sorted} />
     </div>
   )
 }
@@ -38,6 +41,7 @@ const getQuestionsAsked = (user, questions) => {
 
   questions.map(q => {
     if (q.author === user.id) count++;
+    return q;
   })
 
   return count;
@@ -48,6 +52,7 @@ const getQuestionsAnswered = (user, questions) => {
 
   questions.map(q => {
     if (q.optionOne.votes.includes(user.id) || q.optionTwo.votes.includes(user.id)) count++;
+    return q;
   })
 
   return count;
