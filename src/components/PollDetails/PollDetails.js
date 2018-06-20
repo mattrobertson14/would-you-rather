@@ -1,6 +1,6 @@
 import React from 'react';
 import './PollDetails.css';
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import { saveQuestionAnswer } from '../../redux/actions/Questions';
@@ -54,7 +54,15 @@ const NotFound = () => {
   )
 }
 
-//PollDetails.propTypes = {}
+PollDetails.propTypes = {
+  questions: propTypes.object.isRequired,
+  users: propTypes.object.isRequired,
+  user: propTypes.object.isRequired,
+  uuid: propTypes.string.isRequired,
+  loading: propTypes.bool.isRequired,
+  castVote: propTypes.func.isRequired
+}
+
 
 const mapDispatchToProps = dispatch => ({
   castVote : (uId, qId, answer) => dispatch(saveQuestionAnswer(uId, qId, answer))

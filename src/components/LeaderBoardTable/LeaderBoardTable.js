@@ -1,6 +1,6 @@
 import React from 'react';
 import './LeaderBoardTable.css';
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { LeaderboardUser } from '../';
 
 const LeaderBoardTable = ({ countInfo, users }) => {
@@ -21,6 +21,9 @@ const LeaderBoardTable = ({ countInfo, users }) => {
   )
 }
 
-// LeaderBoardTable.propTypes = {}
+LeaderBoardTable.propTypes = {
+  countInfo: propTypes.object.isRequired,
+  users: propTypes.array.isRequired
+}
 
 export default LeaderBoardTable;

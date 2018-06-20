@@ -1,6 +1,6 @@
 import React from 'react';
 import './NewPoll.css';
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { newQuestion } from '../../redux/actions/Questions';
 import { withRouter } from 'react-router-dom';
@@ -32,7 +32,10 @@ const NewPoll = ({ addQuestion, user, history }) => {
   )
 }
 
-//NewPoll.propTypes = {}
+NewPoll.propTypes = {
+  addQuestion: propTypes.func.isRequired,
+  user: propTypes.object.isRequired
+}
 
 const mapDispatchToProps = dispatch => ({
   addQuestion: (one, two, uId) => dispatch(newQuestion(one, two, uId))

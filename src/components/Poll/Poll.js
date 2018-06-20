@@ -1,7 +1,7 @@
 import React from 'react';
 import './Poll.css';
 import { Link } from 'react-router-dom';
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { connect } from 'react-redux'
 
 const Poll = ({ question, answered, user }) => {
@@ -29,7 +29,11 @@ const Poll = ({ question, answered, user }) => {
   )
 }
 
-//Poll.propTypes = {}
+Poll.propTypes = {
+  user: propTypes.object.isRequired,
+  question: propTypes.object.isRequired,
+  answered: propTypes.bool.isRequired
+}
 
 const mapDispatchToProps = null;
 

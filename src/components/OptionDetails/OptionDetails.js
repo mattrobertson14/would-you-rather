@@ -1,6 +1,6 @@
 import React from 'react';
 import './OptionDetails.css';
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 const OptionDetails = ({ number, option, votes, users, currentUser }) => {
   let selected = votes.for.includes(currentUser.id);
@@ -9,7 +9,7 @@ const OptionDetails = ({ number, option, votes, users, currentUser }) => {
       {selected? <p className="SelectedLabel">Your Choice</p> : null }
       <p className={selected? "Option Selected" : "Option"}>Option {number}: { option }</p>
       <p className="VoteBreakdown">{ percentFor(votes) }% of the votes in this poll were for Option { number }. A total of {numberFor(votes.for)} voted for this.</p>
-      <p className="VoteListLabel">{votes.for.length > 0? 'These' : 'No'} Users have voted for this poll:</p>
+      <p className="VoteListLabel">{votes.for.length > 0? 'These' : 'No'} Users have voted for this poll</p>
       <ul className="VoteList">
         {votes.for.map(vote => (
           <li key={vote}>{users[vote].name} {vote === currentUser.id? '- You' : null}</li>
@@ -33,6 +33,12 @@ const numberFor = (votes) => {
   return count + label;
 }
 
-//OptionDetails.propTypes = {}
+OptionDetails.propTypes = {
+  number: propTypes.number.isRequired,
+  option: propTypes.string.isRequired,
+  votes: propTypes.object.isRequired,
+  users: propTypes.object.isRequired,
+  currentUser: propTypes.object.isRequired
+}
 
 export default OptionDetails;

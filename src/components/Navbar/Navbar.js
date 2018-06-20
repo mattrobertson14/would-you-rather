@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navbar.css';
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { updateQuestionView } from '../../redux/actions/Questions';
 import { connect } from 'react-redux';
@@ -18,7 +18,9 @@ const Navbar = ({ resetQuestionView }) => {
   )
 }
 
-//Navbar.propTypes = {}
+Navbar.propTypes = {
+  resetQuestionView: propTypes.func.isRequired
+}
 
 const mapDispatchToProps = dispatch => ({
   resetQuestionView: () => dispatch( updateQuestionView('unanswered') )

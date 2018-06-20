@@ -3,7 +3,7 @@ import './Login.css';
 import { connect } from 'react-redux';
 import { loadUsers, setLoading, loginUser as loginUserAction } from '../../redux/actions/Users';
 import { LoginOption } from '../';
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { BarLoader } from 'react-spinners';
 
 class Login extends Component {
@@ -32,7 +32,13 @@ class Login extends Component {
   }
 }
 
-//Login.propTypes = {}
+Login.propTypes = {
+  loadUsers: propTypes.func.isRequired,
+  loginUser: propTypes.func.isRequired,
+  setLoading: propTypes.func.isRequired,
+  users: propTypes.object.isRequired,
+  loading: propTypes.bool.isRequired
+}
 
 const mapDispatchToProps = dispatch => ({
   loadUsers: () => dispatch( loadUsers() ),

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Leaderboard.css';
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { LeaderBoardTable } from '../';
 
@@ -58,11 +58,15 @@ const getQuestionsAnswered = (user, questions) => {
   return count;
 }
 
-// Leaderboard.propTypes = {}
+Leaderboard.propTypes = {
+  questions : propTypes.array.isRequired,
+  questionsObj : propTypes.object.isRequired,
+  users : propTypes.array.isRequired,
+  usersObj : propTypes.object.isRequired,
+  loading : propTypes.bool.isRequired
+}
 
-const mapDispatchToProps = dispatch => ({
-
-});
+const mapDispatchToProps = null;
 
 const mapStateToProps = state => ({
   questions : state.questions.all,

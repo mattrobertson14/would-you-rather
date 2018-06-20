@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Body.css';
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { Route, withRouter } from 'react-router-dom';
 import { Home, Leaderboard, NewPoll, PollDetails } from '../';
 import { connect } from 'react-redux';
@@ -24,7 +24,11 @@ class Body extends Component {
   }
 }
 
-//Body.propTypes = {}
+Body.propTypes = {
+  loadQuestions: propTypes.func.isRequired,
+  questions: propTypes.array.isRequired,
+  user: propTypes.object.isRequired
+}
 
 const mapDispatchToProps = dispatch => ({
   loadQuestions: () => dispatch( loadQuestions() )

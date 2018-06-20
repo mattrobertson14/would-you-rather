@@ -1,5 +1,5 @@
 import React from 'react';
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 const Unanswered = ({ question, user, castVote }) => {
 
@@ -13,6 +13,10 @@ const Unanswered = ({ question, user, castVote }) => {
   )
 }
 
-//Unanswered.propTypes = {}
+Unanswered.propTypes = {
+  question: propTypes.object.isRequired,
+  user: propTypes.object.isRequired,
+  castVote: propTypes.func.isRequired
+}
 
 export default Unanswered;

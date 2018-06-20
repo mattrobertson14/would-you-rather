@@ -1,6 +1,6 @@
 import React from 'react';
 import './LoginOption.css';
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 const LoginOption = ({ user, login }) => {
   return (
@@ -11,6 +11,9 @@ const LoginOption = ({ user, login }) => {
   )
 }
 
-//LoginOption.propTypes = {}
+LoginOption.propTypes = {
+  user: propTypes.object.isRequired,
+  login: propTypes.func.isRequired
+}
 
 export default LoginOption;

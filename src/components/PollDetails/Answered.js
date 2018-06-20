@@ -1,6 +1,6 @@
 import React from 'react';
 import { OptionDetails } from '../';
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 const Answered = ({ question, users, user }) => {
 
@@ -26,6 +26,10 @@ const Answered = ({ question, users, user }) => {
   )
 }
 
-//Answered.propTypes = {}
+Answered.propTypes = {
+  question: propTypes.object.isRequired,
+  users: propTypes.object.isRequired,
+  user: propTypes.object.isRequired
+}
 
 export default Answered;

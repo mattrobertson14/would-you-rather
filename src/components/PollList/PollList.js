@@ -1,6 +1,6 @@
 import React from 'react';
 import './PollList.css';
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { Poll } from '../';
 
 const PollList = ({ questions, answered }) => {
@@ -16,6 +16,9 @@ const PollList = ({ questions, answered }) => {
   )
 }
 
-//PollList.propTypes = {}
+PollList.propTypes = {
+  questions: propTypes.array.isRequired,
+  answered: propTypes.bool.isRequired
+}
 
 export default PollList;

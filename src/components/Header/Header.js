@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../redux/actions/Users'
 import { Link } from 'react-router-dom';
@@ -22,7 +22,10 @@ const Header = ({ user, logout }) => {
   )
 }
 
-//Header.propTypes = {}
+Header.propTypes = {
+  logout: propTypes.func.isRequired,
+  user: propTypes.object.isRequired
+}
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logoutUser())

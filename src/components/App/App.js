@@ -22,9 +22,7 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-
-});
+const mapDispatchToProps = null;
 
 const mapStateToProps = state => ({
   user : state.users.currentUser

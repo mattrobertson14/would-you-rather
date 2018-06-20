@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { updateQuestionView as updateQuestionViewAction } from '../../redux/actions/Questions';
 import { PollList } from '../';
@@ -38,7 +38,13 @@ const hasVoted = (userId, question) => {
   return false;
 }
 
-//Home.propTypes = {}
+Home.propTypes = {
+  updateQuestionView: propTypes.func.isRequired,
+  questions: propTypes.func.isRequired,
+  questionView: propTypes.string.isRequired,
+  loading: propTypes.bool.isRequired,
+  user: propTypes.object.isRequired
+}
 
 const mapDispatchToProps = dispatch => ({
   updateQuestionView: ( val ) => dispatch( updateQuestionViewAction( val ) )

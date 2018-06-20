@@ -1,6 +1,6 @@
 import React from 'react';
 import './LeaderboardUser.css';
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 const LeaderboardUser = ({ userInfo }) => {
 
@@ -15,6 +15,8 @@ const LeaderboardUser = ({ userInfo }) => {
   )
 }
 
-// LeaderboardUser.propTypes = {}
+LeaderboardUser.propTypes = {
+  userInfo: propTypes.object.isRequired
+}
 
 export default LeaderboardUser;
